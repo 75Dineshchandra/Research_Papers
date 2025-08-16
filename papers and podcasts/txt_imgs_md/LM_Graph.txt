@@ -1,0 +1,130 @@
+/Large_Language_Models
+├── GPT_Series
+│   ├── Improving_Language_Understanding_by_Generative_Pre-Training (Radford et al., 2018 - GPT-1)
+│   │   ├── **Builds On:** Transformer (decoder-only), ELMo (leveraging unlabeled data)
+│   │   ├── Problem: Scarcity of labeled NLU data, need for universal representation
+│   │   ├── Innovation: Semi-supervised (Generative Pre-training + Discriminative Fine-tuning), Task-aware Input Transformations
+│   │   ├── Concept: Generative Pre-training (unidirectional LM), Discriminative Fine-tuning
+│   │   └── Impact: Established "pre-train and fine-tune" paradigm, paved way for larger GPTs
+│   │
+│   ├── Language_Models_are_Unsupervised_Multitask_Learners (Radford et al., 2019 - GPT-2)
+│   │   ├── **Builds On:** GPT-1's Transformer (decoder-only)
+│   │   ├── Problem: Limited zero-shot performance and generalization of smaller models
+│   │   ├── Innovation: Scaling model size (1.5B parameters), massive dataset (WebText), no task-specific fine-tuning for zero-shot generalization
+│   │   ├── Concept: Zero-shot learning, increased scale, web-scraped data
+│   │   └── Impact: Demonstrated strong zero-shot capabilities, raised concerns about misuse of large generative models, pushed the scaling frontier
+│   │
+│   ├── Language_Models_are_Few-Shot_Learners (Brown et al., 2020 - GPT-3)
+│   │   ├── **Builds On:** GPT-2, Transformer (decoder-only)
+│   │   ├── Problem: Need for more efficient adaptation to new tasks without large labeled datasets
+│   │   ├── Innovation: Extreme scaling (175B parameters), few-shot learning (in-context learning via prompt design), prompt engineering as a paradigm
+│   │   ├── Concept: Few-shot learning, In-context learning, Prompt Engineering, Large scale (175B parameters)
+│   │   └── Impact: Demonstrated power of scaling and in-context learning, led to widespread interest in LLMs and their applications
+│   │
+│   └── GPT-4 (OpenAI, 2023)
+│       ├── **Builds On:** Transformer architecture, GPT series (GPT-1, GPT-2, GPT-3), scaling principles
+│       ├── Problem: Developing broadly useful and safely deployed AI, pushing multimodal capabilities and predictable scaling
+│       ├── Innovation: Multimodal (image & text input), Predictable Scaling (reliable performance prediction from smaller models), Advanced Tool Use (multi-step reasoning with external tools), Extensive Safety & Alignment (red teaming, hallucination reduction, jailbreak mitigation)
+│       ├── Concept: Multimodality, Predictable Scaling, Advanced Tool Use, Red Teaming, Adversarial Prompting / Jailbreaks
+│       └── Impact: Demonstrated near-human performance on diverse tasks/exams, set new standards for multimodal understanding, highlighted importance of safety/alignment in large AI systems
+│
+├── Llama_Series
+│   ├── Llama (Touvron et al., 2023 - Llama 1)
+│   │   ├── **Builds On:** Causal Decoder Transformer, Pre-RMS Layer Norm, Rotary Positional Embeddings (RoPE)
+│   │   ├── Problem: Need for smaller, more efficient foundational models competitive with large closed-source LLMs
+│   │   ├── Innovation: Highly optimized architecture, focus on data quality over quantity for efficiency, release of various sizes (7B-65B)
+│   │   ├── Concept: Efficient LLM design, open-source competitive performance, data-centric approach
+│   │   └── Impact: Democratized access to powerful LLMs, fueled open-source development and research, became a baseline for many subsequent models
+│   │
+│   ├── Llama_2 (Touvron et al., 2023 - Llama 2)
+│   │   ├── **Builds On:** Llama 1, Causal Decoder Transformer
+│   │   ├── Problem: Need for open-source LLMs with strong safety and alignment for commercial use
+│   │   ├── Innovation: Extensive Reinforcement Learning from Human Feedback (RLHF), safety fine-tuning, "Ghost Attention" for multi-turn consistency, increased context window (up to 4K)
+│   │   ├── Concept: RLHF for safety/alignment, Curriculum Annotation, Ghost Attention (multi-turn consistency)
+│   │   └── Impact: Set new standards for safety and helpfulness in open-source models, encouraged responsible deployment of LLMs, widely adopted for commercial applications
+│   │
+│   └── Llama_3 (Meta AI, 2024 - Llama 3)
+│       ├── **Builds On:** Llama 2, Causal Decoder Transformer
+│       ├── Problem: Further enhancing performance, instruction following, and efficiency for larger scale open models
+│       ├── Innovation: Larger scale (8B, 70B initially, 400B+ planned), improved tokenizer (128K vocab), Grouped-Query Attention (GQA) for 8B and 70B, expanded context window (8K), extensive pretraining data (15T tokens)
+│       ├── Concept: Continued scaling with efficiency (GQA), richer tokenizer, enhanced instruction following, superior performance across benchmarks
+│       └── Impact: Became one of the strongest open-source models, further narrowed the gap with leading closed-source models, boosted capabilities for complex reasoning and coding
+│
+├── Mixtral (Mistral AI, 2024)
+│   ├── **Builds On:** Transformer, Mixture-of-Experts (MoE) concepts
+│   ├── Problem: Desire for high performance with computational efficiency for very large models
+│   ├── Innovation: Sparse Mixture-of-Experts (SMoE) architecture (141B total, 13B active params/token), high context length (32K/64K), native function calling
+│   ├── Concept: Mixture-of-Experts (MoE), Sparse Activation, Router Mechanism, Function Calling
+│   └── Impact: Achieves SOTA performance with significantly lower inference costs, makes large models more accessible and deployable
+│
+├── DeepSeek_Series
+│   ├── DeepSeek-V2 (DeepSeek AI, 2024)
+│   │   ├── **Builds On:** Transformer, Mixture-of-Experts (MoE)
+│   │   ├── Problem: Achieving extreme efficiency for large MoE models while maintaining SOTA performance for inference
+│   │   ├── Innovation: Multi-head Latent Attention (MLA) for KV cache compression (low-rank KV joint compression), DeepSeekMoE (fine-grained expert segmentation, shared expert isolation, auxiliary-loss-free load balancing), 236B total parameters, 21B activated
+│   │   ├── Concept: MLA ($O(N \cdot N_l + N_l^2)$ attention), Unified MoE, KV cache reduction by 93.3%
+│   │   └── Impact: Significantly boosts maximum generation throughput (5.76x vs DeepSeek 67B), achieves top-tier performance among open-source models at economical costs.
+│   │
+│   └── DeepSeek-V3 (DeepSeek AI, 2025)
+│       ├── **Builds On:** DeepSeek-V2, Transformer, MoE
+│       ├── Problem: Further improving performance and stability at massive scale, exploring new training objectives
+│       ├── Innovation: Multi-Token Prediction (MTP) objective, 671B total parameters, 37B activated per token, knowledge distillation from DeepSeek-R1, Byte-level BPE (128K vocab) with tokenizer enhancements
+│       ├── Concept: Multi-Token Prediction (MTP) for speculative decoding, Stable Training, Advanced Knowledge Distillation
+│       └── Impact: Outperforms other open-source models and compares to leading closed-source models (GPT-4o, Claude-Sonnet-3.5), demonstrates remarkably stable training for massive models.
+│
+├── Qwen_Series
+│   └── Qwen_1.5 (Alibaba Cloud, 2023-2024)
+│       ├── **Builds On:** Transformer architecture, MoE concepts (similar to Mixtral, DeepSeek)
+│       ├── Problem: Need for highly performant and multilingual open-source LLMs, efficient MoE training
+│       ├── Innovation: Strong Multilingual Understanding (12+ languages), Qwen1.5 MoE (fine-grain experts, upcycling initialization, sophisticated routing mechanism), various model sizes including MoE
+│       ├── Concept: Multilingual LLM, Fine-grain Experts, Upcycling Initialization, MoE Routing
+│       └── Impact: Contributes to the open-source multilingual LLM landscape, provides efficient MoE implementation strategies, strong performance on Chinese benchmarks.
+│
+├── Phi_Series (Microsoft Research, 2023-2025)
+│   ├── **Builds On:** Decoder-only Transformer, FlashAttention, Parallel Attention/MLP
+│   ├── Problem: Demonstrating high performance with significantly smaller models, importance of data quality
+│   ├── Innovation: "Textbook Quality" Data (heavily filtered/synthetic), Synthetic Data Generation (self-revision, instruction reversal for code), Decontamination Algorithm (hybrid n-gram)
+│   ├── Concept: Data Centric AI, Small Language Models (SLMs) with high quality data, PhiBench (internal evaluation)
+│   └── Impact: Challenges scaling laws, proves data quality can substitute for raw model size, enables deployment on edge devices, pioneers synthetic data generation
+│
+├── Gemma_Series (Google DeepMind, 2024-Present)
+│   ├── **Builds On:** Transformer (decoder-only), Gemini architecture principles, RoPE, GeGLU activations, RMSNorm
+│   ├── Problem: Need for lightweight, state-of-the-art open models built with responsible AI in mind, offering efficiency for diverse deployments.
+│   ├── Innovation: Family of models (2B, 7B, 9B, 27B) derived from Gemini research, optimized for performance and resource efficiency, focus on safety and responsibility.
+│   ├── Concept: Open-weight LLM, Responsible AI, Multi-Query Attention (MQA) for smaller models, Multi-Head Attention (MHA) for larger models.
+│   └── Impact: Google's entry into open-source LLMs, providing robust and efficient options for local development and research, fostering responsible AI practices.
+│
+├── Falcon_Series (Technology Innovation Institute - TII, 2023-Present)
+│   ├── **Builds On:** Transformer architecture, highly optimized training pipelines
+│   ├── Problem: Need for competitive, openly available large-scale LLMs, with strong multilingual and multimodal capabilities.
+│   ├── Innovation: Highly efficient training (less compute than peers), large parameter count (e.g., Falcon-180B), emphasis on data quality. Newer versions (Falcon 2, Falcon 3) integrate multilingual and multimodal features, and hybrid Transformer-Mamba architectures (Falcon-H1).
+│   ├── Concept: Optimized Transformer, Data Quality Focus, Multilingual, Multimodal (Vision-to-Language), Hybrid Architectures (Transformer + Mamba).
+│   └── Impact: Major open-source contribution from the Middle East, offering top-tier performance for research and commercial use, democratizing access to large models.
+│
+├── StarCoder_Series (BigCode project, 2023-Present)
+│   ├── **Builds On:** Transformer (decoder-only), Multi-Query Attention (MQA), Fill-in-the-Middle (FIM)
+│   ├── Problem: Demand for high-quality, open-source models specifically for code generation and understanding.
+│   ├── Innovation: Trained on massive, permissively licensed code datasets (The Stack), advanced infilling capabilities, long context window (8K), fast large-batch inference. StarCoder2 further expands dataset and improves accuracy.
+│   ├── Concept: Code LLM, Multi-Query Attention, Fill-in-the-Middle (FIM) for code infilling, OpenRAIL-M license.
+│   └── Impact: Leading open-source models for programming tasks, enabling robust AI tools for software development, fostering open-source code AI research.
+│
+├── Yi_Series (01.AI, 2023-Present)
+│   ├── **Builds On:** Transformer architecture (Llama-like), extensive multilingual corpus
+│   ├── Problem: Need for highly performant, bilingual (English/Chinese) open-source LLMs with very long context handling.
+│   ├── Innovation: Large-scale training on a 3T multilingual corpus, focus on English and Chinese performance, exceptional long context modeling (up to 200K tokens), multimodal versions (Yi-VL).
+│   ├── Concept: Bilingual LLM (EN/ZH), Long Context Modeling (two-phase approach), Vision-Language Integration.
+│   └── Impact: Strong contender in the multilingual LLM space, particularly for East Asian languages, and a leader in extended context window capabilities for open models.
+│
+├── Dolly_Series (Databricks, 2023)
+│   ├── **Builds On:** EleutherAI's Pythia model (e.g., Pythia-12B)
+│   ├── Problem: Demonstrate that instruction-following LLMs can be built on non-proprietary, human-generated data without massive scale.
+│   ├── Innovation: Fine-tuned exclusively on a novel, human-generated instruction-following dataset (Databricks-dolly-15k), commercially usable license (CC-BY-SA).
+│   ├── Concept: Instruction-Tuned LLM, Data-Centric AI, Small/Medium LLM effectiveness through high-quality instruction data.
+│   └── Impact: Proved the viability of creating commercially usable, instruction-following LLMs without relying on proprietary data, democratized access to instruction tuning.
+│
+└── MPT_Series (MosaicML/Databricks, 2023-Present)
+    ├── **Builds On:** Decoder-only Transformer, FlashAttention, ALiBi (Attention with Linear Biases)
+    ├── Problem: Need for commercially viable, efficiently trained, and easily deployable open-source LLMs with long context capabilities.
+    ├── Innovation: Highly optimized for training and inference efficiency, commercially permissive license, support for very long context windows (e.g., 65K+ tokens for StoryWriter), various specialized models (Instruct, Chat).
+    ├── Concept: Commercially Usable LLM, Efficient Training/Inference, ALiBi for long context, Decoder-Only Transformer.
+    └── Impact: Provided early, strong, and commercially friendly open-source alternatives, contributed to pushing long-context window capabilities in open models.

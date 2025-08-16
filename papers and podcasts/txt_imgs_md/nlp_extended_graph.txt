@@ -1,0 +1,197 @@
+https://chatgpt.com/share/6873c5f3-24e4-8006-9154-ee7de7009165
+
+https://chatgpt.com/share/6873c5f3-24e4-8006-9154-ee7de7009165
+Great! Here's a unified and expanded /NLP\_Evolution tree including both the original set and your recently added models, all in the Problem → Innovation → Concept/Solution → Impact format:
+
+/NLP\_Evolution
+├── Text\_Preprocessing\_&\_Representation
+│   ├── Subword\_Units (Sennrich et al., 2015 – BPE)
+│   │   ├── Problem: OOV words, fixed vocabulary
+│   │   ├── Innovation: Byte-Pair Encoding (BPE)
+│   │   ├── Concept: Subword tokenization
+│   │   └── Impact: Standard for LLM tokenization (e.g., GPT, BERT)
+│   └── Word\_Embeddings
+│       ├── Word2Vec (Mikolov et al., 2013)
+│       │   ├── Problem: No notion of semantic similarity
+│       │   ├── Innovation: CBOW and Skip-Gram
+│       │   ├── Concept: Distributed dense word vectors
+│       │   └── Impact: Foundation for static word embeddings
+│       ├── GloVe (Pennington et al., 2014)
+│       │   ├── Problem: Word2Vec lacks global co-occurrence info
+│       │   ├── Innovation: Log-bilinear regression on co-occurrence matrix
+│       │   ├── Concept: Global matrix factorization
+│       │   └── Impact: Widely used static embeddings
+│       └── ELMo (Peters et al., 2018)
+│           ├── Problem: Static embeddings can’t model polysemy
+│           ├── Innovation: Deep BiLSTM with character-level inputs
+│           ├── Concept: Contextualized word embeddings
+│           └── Impact: Precursor to Transformer-based LLMs
+
+├── Transformers\_&\_Pretrained\_Language\_Models
+│   ├── Transformer (Vaswani et al., 2017)
+│   │   ├── Problem: RNNs are slow and sequential
+│   │   ├── Innovation: Self-Attention & Multi-Head Attention
+│   │   ├── Concept: Encoder-decoder with parallelization
+│   │   └── Impact: Foundation for all modern LLMs
+│   ├── GPT-1 (Radford et al., 2018)
+│   │   ├── Problem: Lack of universal representations
+│   │   ├── Innovation: Pre-training + fine-tuning
+│   │   ├── Concept: Decoder-only Transformer
+│   │   └── Impact: Introduced pretrain-finetune paradigm
+│   ├── BERT (Devlin et al., 2018)
+│   │   ├── Problem: Need for bidirectional context
+│   │   ├── Innovation: Masked LM and NSP
+│   │   ├── Concept: Encoder-only Transformer
+│   │   └── Impact: New SOTA in NLU; spawned BERTology
+│   ├── T5 (Raffel et al., 2020)
+│   │   ├── Problem: Fragmented modeling approaches
+│   │   ├── Innovation: Unified text-to-text framework
+│   │   ├── Concept: Encoder-decoder + span corruption
+│   │   └── Impact: Standard for multitask learning, instruction tuning
+│   ├── PaLM (Chowdhery et al., 2022)
+│   │   ├── Problem: Scaling and generalization
+│   │   ├── Innovation: Pathways + high-quality data + CoT prompting
+│   │   ├── Concept: Massive encoder-decoder transformer
+│   │   └── Impact: SOTA on BIG-bench, few-shot generalization
+│   └── OPT (Zhang et al., 2022)
+│       ├── Problem: Lack of open access to large LLMs
+│       ├── Innovation: Open-source decoder-only LLMs
+│       ├── Concept: Public checkpoints from 125M to 175B
+│       └── Impact: Community access, reproducibility
+
+├── 🔄 LLM\_Scaling
+│   ├── GPT-2 (Radford et al., 2019)
+│   │   ├── Problem: Need for better generation through scale
+│   │   ├── Innovation: Larger Transformer LM trained on WebText
+│   │   ├── Concept: Decoder-only LM
+│   │   └── Impact: Emergent generation capabilities
+│   ├── GPT-3 (Brown et al., 2020)
+│   │   ├── Problem: Limited data/task-specific fine-tuning
+│   │   ├── Innovation: Massive LM trained with few-shot prompting
+│   │   ├── Concept: In-context learning
+│   │   └── Impact: Prompt engineering boom, zero/few-shot LMs
+│   ├── DeepSeek (2023) 🔥NEW
+│ 	├── Problem: Closed-source model limitations
+│ 	├── Innovation: Open-source GPT-style models trained on 2T tokens
+│ 	├── Solution: DeepSeek LLM & DeepSeek-V2 (15B, 236B versions)
+│ 	└── Impact: Powerful open-source models rivaling GPT-3.5 performance
+│   └── Mistral (2023) 🔥NEW
+│ 	├── Problem: Existing open models too large or slow for edge use
+│ 	├── Innovation: Grouped Query Attention, sliding window attention
+│ 	├── Solution: Mistral-7B, Mixtral MoE (2 of 8 experts active per step)
+│ 	└── Impact: State-of-the-art efficient open-weight LLMs
+
+│   └── InstructGPT (Ouyang et al., 2022)
+│       ├── Problem: Models don't align with human intent
+│       ├── Innovation: Reinforcement Learning from Human Feedback (RLHF)
+│       ├── Concept: Human rankings → reward model → fine-tuning
+│       └── Impact: Laid groundwork for ChatGPT-like alignment
+│   ├── Claude (Anthropic, 2023) 🔥NEW
+│ 	├── Problem: RLHF is costly + opaque
+│ 	├── Innovation: Constitutional AI – self-critiquing using principles
+│ 	├── Solution: Claude 1/2/3 family trained with AI-generated feedback
+│ 	|── Impact: Safer, helpful models that avoid harmful completions
+
+
+├── ⚙️ Retrieval-Augmented\_Generation
+│   ├── REALM (2020)
+│   │   ├── Problem: LMs lack access to external knowledge
+│   │   ├── Innovation: End-to-end retrieval with joint training
+│   │   ├── Concept: Latent document retrieval + LM
+│   │   └── Impact: Early retrieval-augmented generation model
+│   ├── RAG (Lewis et al., 2020)
+│   │   ├── Problem: External knowledge isn't differentiable
+│   │   ├── Innovation: Modular retriever + generator
+│   │   ├── Concept: Dense passage retrieval + seq2seq LM
+│   │   └── Impact: Foundation for hybrid RAG systems
+│   └── FiD (Izacard & Grave, 2021)
+│       ├── Problem: Limited integration of retrieved evidence
+│       ├── Innovation: Encode each passage independently
+│       ├── Concept: Fusion-in-Decoder (FiD)
+│       └── Impact: SOTA on QA; inspired HyDE, DRAGON, etc.
+
+├── 🧑‍🔬 RLHF\_&\_Alignment
+│   ├── InstructGPT (relisted for RLHF context)
+│   └── Constitutional\_AI (Anthropic, 2023)
+│       ├── Problem: Human feedback is costly and inconsistent
+│       ├── Innovation: Self-critiquing with a rulebook
+│       ├── Concept: LLM critiques itself using predefined rules
+│       └── Impact: Improved alignment without direct human labels
+
+├── 🧠 LLM\_Agents\_&\_Tool\_Use
+│   ├── Toolformer (Schick et al., 2023)
+│   │   ├── Problem: LLMs don't know when to use external tools
+│   │   ├── Innovation: Self-supervised API-calling data creation
+│   │   ├── Concept: LM predicts when/how to call APIs
+│   │   └── Impact: Foundation for tool-augmented agents
+│   └── ReAct (Yao et al., 2022)
+│       ├── Problem: LLMs struggle with decision-making + tool-use
+│       ├── Innovation: Combine reasoning traces with tool actions
+│       ├── Concept: Reasoning and Acting (ReAct) pattern
+│       └── Impact: Inspired AutoGPT, AgentBench, LangChain agents
+
+├── 🧬 Multimodal\_LLMs
+│   ├── CLIP (Radford et al., 2021)
+│   │   ├── Problem: Bridging image and text modalities
+│   │   ├── Innovation: Contrastive learning on image-text pairs
+│   │   ├── Concept: Joint vision-language embedding space
+│   │   └── Impact: Foundational for multimodal LLMs, grounding
+│   └── GPT-4V (OpenAI, 2023)
+│       ├── Problem: Need for multimodal reasoning
+│       ├── Innovation: Vision capabilities integrated into GPT-4
+│       ├── Concept: Unified architecture for image + text
+│       └── Impact: Broadens LLM applications to vision tasks
+
+├── 🧪 Evaluation\_&\_Robustness
+│   ├── TruthfulQA (2022)
+│   │   ├── Problem: LLMs generate convincing but false info
+│   │   ├── Innovation: Benchmark with adversarially designed questions
+│   │   ├── Concept: Truthfulness evaluation
+│   │   └── Impact: Measures factual reliability
+│   ├── BIG-bench (2022)
+│   │   ├── Problem: Lack of capability-diverse benchmarks
+│   │   ├── Innovation: Community-curated broad eval set
+│   │   ├── Concept: Benchmark for emergent capabilities
+│   │   └── Impact: Standard for stress-testing LLM generalization
+│   ├── SYNTHEVAL (Zhao et al., 2024)
+│   └── Holistic Evaluation (Bommasani et al., 2023)
+
+├── Multilingual\_NLP
+│   └── XLM-R (Conneau et al., 2019)
+│       ├── Problem: Limited scale multilingual LMs
+│       ├── Innovation: 100-language pretraining with MLM
+│       ├── Concept: SentencePiece tokenization + Transformer
+│       └── Impact: Strong XLU transfer, multilingual robustness
+
+├── NLP\_Tasks
+│   └── Pointer-Generator for Summarization (See et al., 2017)
+│       ├── Problem: Factual errors, repetition, OOV in summarization
+│       ├── Innovation: Copy + generate with coverage
+│       ├── Concept: Pointer-generator networks
+│       └── Impact: Task-specific advancement, widely used
+
+├── Instruction\_Tuning
+│   ├── SELF-INSTRUCT (Wang et al., 2022)
+│   ├── Flan-PaLM (Chung et al., 2024)
+│   └── Behavior Shift Study (Wu et al., 2023)
+
+├── 💡 Small\_&\_Distilled\_Models
+│   ├── DistilBERT (Sanh et al., 2020)
+│   │   ├── Problem: Large models too resource-intensive
+│   │   ├── Innovation: Knowledge distillation from BERT
+│   │   ├── Concept: Smaller model with retained performance
+│   │   └── Impact: Democratized Transformer deployment
+│   └── TinyLLaMA (2023)
+│       ├── Problem: No truly open <1B parameter models
+│       ├── Innovation: Pretraining pipeline for tiny models
+│       ├── Concept: Open small-scale LLaMA variants
+│       └── Impact: Lightweight inference on edge/low-cost settings
+
+└── Ethics\_Bias\_&\_Responsible\_AI
+└── Stochastic Parrots (Bender et al., 2021)
+├── Problem: Scaling harms: bias, misinformation, environmental cost
+├── Innovation: Critical framework on LLM risks
+├── Concept: "Stochastic parrots" (surface-level mimicry)
+└── Impact: Sparked debate on responsible AI scaling
+
+Would you like this as a printable markdown, PDF, or visual mind map as well?

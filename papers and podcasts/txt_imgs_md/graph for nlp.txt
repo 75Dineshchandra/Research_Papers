@@ -1,0 +1,136 @@
+https://chatgpt.com/share/6873c436-69c4-800a-bf50-235b14fd11d5
+
+
+/NLP_Evolution
+├── Text_Preprocessing_&_Representation
+│   ├── Subword_Units (Sennrich et al., 2015 - BPE)
+│   │   ├── Problem: OOV words, fixed vocabulary, productive morphology
+│   │   ├── Innovation: Subword units (BPE, char n-grams) for NMT
+│   │   └── Impact: Standard for LLM tokenization (e.g., Transformer, T5, GPTs)
+│   │
+│   └── Word_Embeddings_&_Vectorization
+│       ├── Distributed_Representations_of_Words (Mikolov et al., 2013a - Word2Vec)
+│       │   ├── Problem: Words as atomic units, no similarity
+│       │   ├── Innovation: CBOW & Skip-gram (simple, efficient models)
+│       │   ├── Concept: Dense vectors, Semantic Arithmetic (King - Man + Woman = Queen)
+│       │   └── Impact: Foundation for static word embeddings
+│       │
+│       ├── GloVe (Pennington et al., 2014)
+│       │   ├── Problem: Opacity of Word2Vec's regularities, local vs. global statistics
+│       │   ├── Innovation: Global Log-bilinear Regression (trains on Co-occurrence Matrix)
+│       │   ├── Concept: Word-word Co-occurrence Matrix
+│       │   └── Impact: Widely used static embeddings, meaningful substructure
+│       │
+│       └── Deep_Contextualized_Word_Representations (Peters et al., 2018 - ELMo)
+│           ├── Problem: Static embeddings lack polysemy, context-dependency
+│           ├── Innovation: Deep Bi-directional LSTMs + Character-based architecture
+│           ├── Concept: Contextualized Word Representations
+│           └── Impact: Precursor to Transformer-based LLMs, solidified contextual embeddings
+│
+├── Transformers_&_Pre-trained_Language_Models
+│   ├── Attention_Is_All_You_Need (Vaswani et al., 2017 - Transformer)
+│   │   ├── Problem: RNNs/CNNs sequential, slow training (no parallelization)
+│   │   ├── Innovation: Solely Attention (no recurrence/convolution), Self-Attention, Multi-Head Attention
+│   │   ├── Concept: Encoder-Decoder Arch., Masked Self-Attention (Causal), Positional Encoding
+│   │   └── Impact: Foundational architecture for ALL subsequent LLMs (GPT, BERT, T5, PaLM), parallelization breakthrough
+│   │
+│   ├── Improving_Language_Understanding_by_Generative_Pre-Training (Radford et al., 2018 - GPT-1)
+│   │   ├── **Builds On:** Transformer (decoder-only)
+│   │   ├── **Influenced By:** ELMo (leveraging unlabeled data for higher-level semantics)
+│   │   ├── Problem: Scarcity of labeled NLU data, need for universal representation
+│   │   ├── Innovation: Semi-supervised (Generative Pre-training + Discriminative Fine-tuning), Task-aware Input Transformations
+│   │   ├── Concept: Generative Pre-training (unidirectional LM), Discriminative Fine-tuning
+│   │   └── Impact: Established "pre-train and fine-tune" paradigm, paved way for larger GPTs
+│   │
+│   ├── BERT (Devlin et al., 2018)
+│   │   ├── **Builds On:** Transformer (encoder-only)
+│   │   ├── **Addresses GPT-1's Limitation:** Unidirectional context
+│   │   ├── Problem: Existing pre-training lacks deep bidirectional context
+│   │   ├── Innovation: Masked Language Model (MLM), Next Sentence Prediction (NSP)
+│   │   ├── Concept: Bidirectional Transformer (encoder-only)
+│   │   └── Impact: New standard for NLU, "BERTology" field, inspires T5's span-corruption
+│   │
+│   └── Exploring_the_Limits_of_Transfer_Learning_with_a_Unified_Text-to-Text_Transformer (Raffel et al., 2020 - T5)
+│       ├── **Builds On:** Transformer (encoder-decoder), BERT's denoising objective
+│       ├── Problem: Difficulty comparing diverse transfer learning methods, need for unified approach
+│       ├── Innovation: Text-to-Text Framework, C4 dataset, Span-corruption Objective
+│       ├── Concept: Unified approach for all NLP tasks
+│       └── Impact: State-of-art results, comprehensive empirical survey, C4 dataset widely used, foundational for instruction tuning
+│           ├── PaLM (Chowdhery et al., 2022)
+│           │   ├── **Builds On:** Transformer architecture, T5's principles (especially scaling)
+│           │   ├── Problem: Pushing scaling limits for pre-training, data quality impact on few-shot
+│           │   ├── Innovation: Pathways system, focus on data quality, Chain-of-Thought (CoT) Prompting (as a capability)
+│           │   ├── Concept: Few-shot Evaluation, Chain-of-Thought (CoT) Prompting
+│           │   └── Impact: SOTA on 28/29 English NLP benchmarks, breakthrough on BIG-bench, influenced Flan-PaLM
+│           │
+│           └── Open_Pre-trained_Transformers (OPT) (Zhang et al., 2022)
+│               ├── **Builds On:** Transformer (decoder-only)
+│               ├── Problem: Proprietary LLMs hinder reproducible/responsible research, lack of open access
+│               ├── Innovation: Suite of decoder-only Transformer models (125M to 175B parameters) with open access
+│               ├── Concept: Open access for large-scale LLMs
+│               └── Impact: Enabled reproducible research, fosters community engagement in studying LLM impacts/biases
+│
+├── Multilingual_NLP
+│   └── XLM-R: Unsupervised Cross-lingual Representation Learning at Scale (Lample and Conneau, 2019 / Conneau et al., 2019)
+│       ├── **Builds On:** Transformer, mBERT (implicitly for multilingual approach)
+│       ├── **Leverages:** SentencePiece (subword tokenization from Sennrich's problem domain)
+│       ├── Problem: Limited scale of prior multilingual models (e.g., mBERT Wikipedia data)
+│       ├── Innovation: Transformer-based MLM pre-trained on 100 languages at vast scale, no language embeddings
+│       ├── Concept: Multilingual Masked Language Model (MLM), Cross-lingual Transfer, SentencePiece
+│       └── Impact: State-of-the-art XLU, more inclusive AI, comprehensive study of multilingual pre-training factors
+│
+├── Evaluation_&_Robustness
+│   ├── SYNTHEVAL: Hybrid Behavioral Testing of NLP Models with Synthetic CheckLists (Zhao et al., 2024)
+│   │   ├── **Builds On/Addresses:** CheckList (manual labor problem)
+│   │   ├── **Leverages:** LLMs (e.g., Transformer-based models like BERT/GPT/T5) for generation
+│   │   ├── Problem: Static benchmarks overestimate performance, lack interpretability, manual testing is costly
+│   │   ├── Innovation: Hybrid Behavioral Testing (LLM gen + Human analysis), 3-stage framework
+│   │   ├── Concept: Hybrid Behavioral Testing, TaskModels, Behavioral Template Patterns
+│   │   └── Impact: Identifies weaknesses of strong models, builds more robust NLP, LLMs as evaluation tools
+│   │
+│   └── Holistic_Evaluation_of_Language_Models (Bommasani et al., 2023)
+│       ├── **Context:** Rise of "Foundation Models" (LLMs like BERT/GPT/T5)
+│       ├── Problem: Traditional eval (accuracy-focused) oversimplifies, overlooks fairness/robustness/harm
+│       ├── Innovation: Holistic framework, taxonomizes scenarios/metrics, prioritizes societal relevance
+│       ├── Concept: Holistic Evaluation, Foundation Models, Space of Scenarios and Metrics
+│       └── Impact: Promotes responsible/human-centered AI, encourages broader analysis (bias, toxicity)
+│
+├── NLP_Tasks
+│   └── Get_To_The_Point: Summarization with Pointer-Generator Networks (See et al., 2017)
+│       ├── **Builds On:** Sequence-to-sequence attentional models
+│       ├── **Addresses:** OOV words (similar problem space as Sennrich, but task-specific solution)
+│       ├── Problem: Factual inaccuracies, repetition, OOV in abstractive summarization
+│       ├── Innovation: Hybrid Pointer-Generator Network (copy/generate), Coverage Mechanism
+│       ├── Concept: Pointer-Generator Network (p_gen), Coverage Mechanism
+│       └── Impact: State-of-the-art abstractive summarization, influential architectural components for generative models
+│
+├── Instruction_Tuning_&_Alignment
+│   ├── SELF-INSTRUCT: Aligning Language Models with Self-Generated Instructions (Wang et al., 2022c)
+│   │   ├── **Builds On:** Instruction-tuned LMs (like early InstructGPT concepts)
+│   │   ├── Problem: Limited quantity/diversity of human-written instruction data, costly to collect
+│   │   ├── Innovation: Semi-automated framework to bootstrap instruction data using the LM itself
+│   │   ├── Concept: Instruction Tuning, Bootstrapping, Input-first Approach
+│   │   └── Impact: Significantly improved instruction-following with minimal human effort, inspired Alpaca/Koala
+│   │
+│   ├── Scaling_Instruction-Finetuned_Language_Models (Chung et al., 2024 - Flan-PaLM / Flan-T5)
+│   │   ├── **Builds On:** PaLM, T5, SELF-INSTRUCT (concept of instruction tuning)
+│   │   ├── Problem: Need to systematically scale instruction tuning (tasks, model size, CoT data)
+│   │   ├── Innovation: Scaling across #tasks (1.8K), model size (up to 540B), explicit CoT data inclusion
+│   │   ├── Concept: Flan-PaLM / Flan-T5, Chain-of-Thought (CoT) Fine-tuning
+│   │   └── Impact: SOTA on many benchmarks, critical for models like ChatGPT/GPT-4, confirmed power of instruction tuning
+│   │
+│   └── From_Language_Modeling_to_Instruction_Following: Understanding the Behavior Shift in LLMs after Instruction Tuning (Wu et al., 2023)
+│       ├── **Context:** Post-instruction tuning (e.g., from SELF-INSTRUCT, Flan-PaLM)
+│       ├── Problem: Lack of understanding how instruction tuning intrinsically changes pre-trained models
+│       ├── Innovation: Toolbox of local/global explanation methods (gradient-based attribution, attention/FFN interpretation)
+│       ├── Concept: Input-Output Attribution, Concept-Level Explanation (for FFNs), User-Oriented Tasks, Linguistic Levels
+│       └── Impact: Comprehensive understanding of internal effects (instruction recognition, attention shifts, knowledge adaptation), supports future LLM research
+│
+└── Ethics_Bias_&_Responsible_AI
+    └── On_the_Dangers_of_Stochastic_Parrots: Can Language Models Be Too Big? (Bender et al., 2021)
+        ├── **Critiques:** Trend of "ever-larger LMs" (directly refers to models like GPT, BERT, T5)
+        ├── **Connects With:** Holistic Evaluation (shared concerns about bias, harm, responsible AI)
+        ├── Problem: Unforeseen risks/harms beyond technical performance from scaling LMs
+        ├── Key_Arguments: Environmental costs, financial barriers, opportunity cost, risk of substantial harms (bias, disinformation)
+        ├── Concept: Stochastic Parrots (mimicry without understanding)
+        └── Impact: Critical challenge to scaling

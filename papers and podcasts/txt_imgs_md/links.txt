@@ -1,0 +1,18 @@
+https://chatgpt.com/share/6874f5c6-de80-800a-bf5f-7d561799b1db Transformer models Case study
+
+https://chatgpt.com/share/6873c5f3-24e4-8006-9154-ee7de7009165  NLP evolution Overview
+
+https://chatgpt.com/share/688247e6-56ec-8001-bb44-1c9f8aabbc21 Interview questions
+
+
+Architectures of Base models
+
+https://en.m.wikipedia.org/wiki/GPT-1
+
+https://en.m.wikipedia.org/w/index.php?title=BERT_(language_model)&wprov=rarw1
+
+https://en.m.wikipedia.org/wiki/T5_(language_model)
+
+https://en.m.wikipedia.org/wiki/Gemini_(language_model)
+
+https://freedium.cfd/https://medium.com/data-science/understanding-the-open-pre-trained-transformers-opt-library-193a29c14a15
