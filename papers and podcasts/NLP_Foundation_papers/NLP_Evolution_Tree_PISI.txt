@@ -1,0 +1,78 @@
+https://chatgpt.com/share/6873c436-69c4-800a-bf50-235b14fd11d5
+
+/NLP_Evolution
+├── Text_Preprocessing_&_Representation
+│   ├── Subword_Units (BPE – Sennrich et al., 2015)
+│   │   ├── Problem: OOV words, fixed vocabulary, productive morphology
+│   │   ├── Innovation: Subword units (BPE, char n-grams) for NMT
+│   │   ├── Solution: Merge frequent character pairs until vocabulary budget met
+│   │   └── Impact: Standard tokenization for Transformer models
+│   └── Word_Embeddings
+│       ├── Word2Vec (Mikolov et al., 2013)
+│       │   ├── Problem: One-hot vectors lack semantic similarity
+│       │   ├── Innovation: Predictive learning of word context
+│       │   ├── Solution: CBOW & Skip-gram architectures
+│       │   └── Impact: Dense embeddings enable semantic arithmetic
+│       ├── GloVe (Pennington et al., 2014)
+│       │   ├── Problem: Local context misses global co-occurrence
+│       │   ├── Innovation: Train on word-word co-occurrence matrix
+│       │   ├── Solution: Global log-bilinear regression model
+│       │   └── Impact: High-quality, interpretable embeddings
+│       └── ELMo (Peters et al., 2018)
+│           ├── Problem: Static embeddings ignore polysemy
+│           ├── Innovation: Deep bidirectional LSTMs with character input
+│           ├── Solution: Contextual word representations
+│           └── Impact: Major leap in contextual NLP models
+├── Transformers_&_Pre-trained_Language_Models
+│   ├── Transformer (Vaswani et al., 2017)
+│   │   ├── Problem: RNNs are sequential and slow
+│   │   ├── Innovation: Attention-only architecture
+│   │   ├── Solution: Self-attention + multi-head attention + positional encodings
+│   │   └── Impact: Breakthrough in training efficiency and scalability
+│   ├── GPT-1 (Radford et al., 2018)
+│   │   ├── Problem: Lack of general pre-trained models
+│   │   ├── Innovation: Generative pretraining + task-specific fine-tuning
+│   │   ├── Solution: Transformer decoder trained on next-token prediction
+│   │   └── Impact: Start of pretrain-then-finetune paradigm
+│   ├── BERT (Devlin et al., 2018)
+│   │   ├── Problem: One-directional context in GPT-1
+│   │   ├── Innovation: Bidirectional masked language modeling
+│   │   ├── Solution: Mask words and predict from both sides
+│   │   └── Impact: Set state-of-the-art on NLU benchmarks
+│   └── T5 (Raffel et al., 2020)
+│       ├── Problem: Diverse tasks had fragmented formats
+│       ├── Innovation: Unified text-to-text framework
+│       ├── Solution: Encode everything as a text generation problem
+│       └── Impact: Strong general-purpose model
+├── 🔄 LLM_Scaling
+│   ├── GPT-2 (2019)
+│   │   ├── Problem: Unclear if scale alone yields generalization
+│   │   ├── Innovation: Larger LM trained on WebText corpus
+│   │   ├── Solution: Train 1.5B parameter model on next token prediction
+│   │   └── Impact: Emergent capabilities, few-shot abilities appear
+│   ├── GPT-3 (2020)
+│   │   ├── Problem: Fine-tuning per task is costly
+│   │   ├── Innovation: Prompt-based few-shot learning
+│   │   ├── Solution: Train 175B model to learn from examples in prompts
+│   │   └── Impact: Prompt engineering era begins, general LLM APIs emerge
+│   └── InstructGPT (2022)
+│       ├── Problem: GPT-3 not aligned to helpful responses
+│       ├── Innovation: Reinforcement Learning from Human Feedback (RLHF)
+│       ├── Solution: Rank outputs → train reward model → PPO fine-tuning
+│       └── Impact: Foundation for ChatGPT, improved alignment
+├── ⚙️ Retrieval-Augmented_Generation
+│   ├── REALM (2020)
+│   │   ├── Problem: LLMs memorize facts → outdated knowledge
+│   │   ├── Innovation: End-to-end differentiable retrieval
+│   │   ├── Solution: Learn to retrieve Wikipedia passages during training
+│   │   └── Impact: Foundation for retriever-reader pipelines
+│   ├── RAG (2020)
+│   │   ├── Problem: REALM too tightly integrated
+│   │   ├── Innovation: Modular retriever + generator
+│   │   ├── Solution: DPR + BART = retrieve docs then generate answers
+│   │   └── Impact: Core architecture for RAG pipelines today
+│   └── FiD (2021)
+│       ├── Problem: Concatenating docs confuses LLM
+│       ├── Innovation: Encode docs separately, fuse in decoder
+│       ├── Solution: T5 encodes passages independently, decoder fuses
+│       └── Impact: Strongest model for open-domain QA
